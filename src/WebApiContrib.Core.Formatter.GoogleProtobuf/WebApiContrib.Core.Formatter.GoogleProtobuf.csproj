@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>ASP.NET Core InputFormatter, OutputFormatter for Google.Protobuf</Description>
+    <VersionPrefix>2.0.1</VersionPrefix>
+    <Authors>damienbod;WebApiContrib Contributors</Authors>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <AssemblyName>WebApiContrib.Core.Formatter.GoogleProtobuf</AssemblyName>
+    <PackageId>WebApiContrib.Core.Formatter.GoogleProtobuf</PackageId>
+    <PackageTags>ASP.NET Core;InputFormatter;OutputFormatter;MediaFormatter;Protobuf;Content-Type;aspnetcore</PackageTags>
+    <PackageIconUrl>https://avatars1.githubusercontent.com/u/1561645?s=140</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/WebAPIContrib/WebAPIContrib.Core/tree/master/src/WebApiContrib.Core.Formatter.GoogleProtobuf</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/WebApiContrib/WebAPIContrib.Core.git</RepositoryUrl>
+    <Version>2.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.0.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.5.1" />
+  </ItemGroup>
+
+</Project>

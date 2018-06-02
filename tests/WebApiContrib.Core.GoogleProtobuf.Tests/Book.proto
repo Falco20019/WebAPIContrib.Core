@@ -1,0 +1,9 @@
+syntax = "proto3";
+package tests;
+
+option csharp_namespace = "WebApiContrib.Core.GoogleProtobuf.Tests";
+
+message Book {
+  string title = 1;
+  string author = 2;
+}
