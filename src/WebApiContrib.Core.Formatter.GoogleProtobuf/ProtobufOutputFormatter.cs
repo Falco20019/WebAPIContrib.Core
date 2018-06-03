@@ -25,11 +25,7 @@ namespace WebApiContrib.Core.Formatter.GoogleProtobuf
 
         public override Task WriteResponseBodyAsync(OutputFormatterWriteContext context)
         {
-            var type = context.ObjectType;
             var response = context.HttpContext.Response;
-
-            if (!typeof(IMessage).IsAssignableFrom(type.GetElementType() ?? type))
-                throw new NotSupportedException("The object to serialize is not of the type `IMessage`.");
 
             if (_options.UseDelimitedFormat)
                 WriteDelemited(context, response);
@@ -64,6 +60,11 @@ namespace WebApiContrib.Core.Formatter.GoogleProtobuf
                 return (Array) context.Object;
             
             return new[] {context.Object};
+        }
+
+        protected override bool CanWriteType(Type type)
+        {
+            return typeof(IMessage).IsAssignableFrom(type.GetElementType() ?? type);
         }
     }
 }

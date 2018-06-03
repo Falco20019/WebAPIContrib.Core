@@ -30,9 +30,6 @@ namespace WebApiContrib.Core.Formatter.GoogleProtobuf
             MediaTypeHeaderValue requestContentType = null;
             MediaTypeHeaderValue.TryParse(request.ContentType, out requestContentType);
             
-            if (!typeof(IMessage).IsAssignableFrom(type.GetElementType() ?? type))
-                throw new NotSupportedException("The object to deserialize is not of the type `IMessage`.");
-
             if (_options.UseDelimitedFormat)
                 return ReadDelemited(type, stream);
             else
@@ -78,7 +75,8 @@ namespace WebApiContrib.Core.Formatter.GoogleProtobuf
 
         public override bool CanRead(InputFormatterContext context)
         {
-            return true;
+            var type = context.ModelType;
+            return typeof(IMessage).IsAssignableFrom(type.GetElementType() ?? type);
         }
     }
 }
